@@ -1,0 +1,407 @@
+\documentclass[final]{beamer}
+\usepackage{ragged2e}
+\usepackage{wrapfig}
+
+
+\setbeamertemplate{headline}{
+  \leavevmode
+  \begin{beamercolorbox}[wd=\paperwidth]{headline}
+    \begin{columns}[T]
+      \begin{column}{.3\paperwidth}
+        %% \vskip1ex
+        \includegraphics[width=0.8\linewidth, keepaspectratio]{/home/lg390/Pictures/logos/UCLouvain_Logo_Pos_CMJN_prof-eps-converted-to.pdf}\\
+        \hspace{1cm}
+        \includegraphics[width=.6\linewidth, keepaspectratio]{/home/lg390/Pictures/logos/LOGO-InstitutDeDuve-Horizontal-CMYK.jpg}
+      \end{column}
+      \begin{column}{.65\paperwidth}
+        %% \hskip2ex
+        \vskip4ex
+        %% \raggedleft
+        \usebeamercolor{title in headline}{\color{fg}\textbf{\Huge{\inserttitle}}\\[1.5ex]}
+        \usebeamercolor{author in headline}{\color{fg}\huge{\insertauthor}\\[1ex]}
+        \usebeamercolor{institute in headline}{\color{fg}\LARGE{\insertinstitute}\\[1ex]}
+      \end{column}
+      %% \begin{column}{.3\paperwidth}
+      %%   \vskip4ex
+      %% \end{column}
+    \end{columns}
+    \vskip2ex
+    \centering
+    \usebeamercolor{institute in headline}{\color{fg}{\normalsize\insertdate}\\[1ex]}
+    \vskip2ex
+  \end{beamercolorbox}
+
+%%  \begin{beamercolorbox}[wd=\paperwidth]{lower separation line head}
+%%    \rule{0pt}{2pt}
+%%  \end{beamercolorbox}
+}
+
+
+\mode<presentation> {  %% check http://www-i6.informatik.rwth-aachen.de/~dreuw/latexbeamerposter.php for examples
+}
+
+% footline colors and fonts
+\setbeamercolor{footline}{fg=white,bg=gray}
+\setbeamerfont{footline}{fg=black,size=\normalsize}
+
+\setbeamertemplate{footline}{
+  \begin{beamercolorbox}[wd=\paperwidth]{upper separation line foot}
+    \rule{0pt}{2pt}
+  \end{beamercolorbox}
+  \leavevmode%
+  \begin{beamercolorbox}[ht=2ex]{footline}%
+    \centering
+    Network Medicine and Big Data
+    \hskip3ex
+    24 -- 26 September 2018
+    \hskip3ex
+    Rome
+  \end{beamercolorbox}
+  \vskip0pt%
+  \begin{beamercolorbox}[wd=\paperwidth]{lower separation line foot}
+    \rule{0pt}{2pt}
+  \end{beamercolorbox}
+}
+
+
+\setbeamertemplate{bibliography item}[text]
+
+\boldmath
+\usepackage[orientation=portrait,size=a0,scale=1.4,debug]{beamerposter}                        % e.g. for DIN-A0 poster
+%\usepackage[orientation=portrait,size=a1,scale=1.4,grid,debug]{beamerposter}                  % e.g. for DIN-A1 poster, with optional grid and debug output
+%\usepackage[size=custom,width=200,height=120,scale=2,debug]{beamerposter}                     % e.g. for custom size poster
+%\usepackage[orientation=portrait,size=a0,scale=1.0,printer=rwth-glossy-uv.df]{beamerposter}   % e.g. for DIN-A0 poster with rwth-glossy-uv printer check
+% ...
+%
+
+%% hide navigation symbols (bottom right)
+\setbeamertemplate{navigation symbols}{}
+
+\usepackage{lipsum}
+\usepackage{ragged2e}
+\usepackage[english]{babel}
+\usepackage[latin1]{inputenc}
+\usepackage{amsmath,amsthm, amssymb, latexsym}
+\usefonttheme[onlymath]{serif}
+
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+
+\usepackage{tcolorbox}
+\usepackage{changepage} %% provided adjustwidth
+\usepackage{framed}
+
+\newenvironment{Leftbar}{%
+  \def\FrameCommand{\vrule width 3pt \hspace{20pt}}%
+  \MakeFramed {\advance\hsize-\width \FrameRestore}}%
+ {\endMakeFramed}
+
+\newcommand{\R}{\texttt{R} }
+\newcommand{\code}[1]{{\texttt{#1}}}
+\newcommand{\Rfunction}[1]{{\texttt{#1}}}
+\newcommand{\Robject}[1]{{\texttt{#1}}}
+\newcommand{\Rpackage}[1]{{\mbox{\texttt{#1}}}}
+\newcommand{\email}[1]{\href{mailto:#1}{\normalfont\texttt{#1}}}
+
+\newcommand{\challenge}[1]{
+       \begin{tcolorbox}[notitle,boxrule=1pt,colback=blue!10,colframe=blue!25]
+         {#1}
+       \end{tcolorbox}
+}
+
+\newcommand{\secintro}[1]{
+  \bigskip
+  \begin{tcolorbox}[notitle,boxrule=0pt,colback=blue!10,colframe=blue!10]{#1}\end{tcolorbox}}
+
+
+%% colors
+\definecolor{Red}{rgb}{0.7,0,0}
+\definecolor{Blue}{rgb}{0,0,0.8}
+
+
+\usepackage[bordercolor=white, backgroundcolor=gray!20]{todonotes}
+
+\usepackage{hyperref}
+\usepackage{breakurl}
+\hypersetup{%
+  pdfauthor={Laurent Gatto},%
+  pdfusetitle,
+  bookmarks = {true},
+  bookmarksnumbered = {true},
+  bookmarksopen = {true},
+  bookmarksopenlevel = 2,
+  unicode = {true},
+  breaklinks = {false},
+  hyperindex = {true},
+  colorlinks = {true},
+  linktocpage = {true},
+  plainpages = {false},
+  linkcolor = {Blue},
+  citecolor = {Blue},
+  urlcolor = {Red},
+  pdfstartview = {Fit},
+  pdfpagemode = {UseOutlines},
+  pdfview = {XYZ null null null}
+}
+
+
+\setbeamertemplate{caption}[numbered]
+
+%% %% figure numering
+%% \usecaptiontemplate{
+%%   \small
+%%   \structure{\insertcaptionname~\insertcaptionnumber:}
+%%   \insertcaption
+%% }
+
+
+\title[Probabilistic Spatial Proteomics]{\huge Probabilistic modelling of \\ protein sub-cellular localisation}
+
+\author[Gatto et al.]{
+  \large Laurent Gatto$^{1, *}$, Oliver M. Crook$^{2}$
+}
+
+\institute[]{
+  \begin{small}
+    $^{1}$ de Duve Institute - UCLouvain, Avenue Hippocrate 75, 1200 Brussels, Belgium \\
+    $^{2}$ Cambridge Centre for Proteomics, Department of Biochemistry, University of Cambridge, UK \\
+    \bigskip
+    $^{*}$\url{laurent.gatto@uclouvain.be} \hspace{5cm}  \url{http://lgatto.github.io/about}
+  \end{small}
+}
+
+
+\date[]{~}
+%% \date{}
+
+\begin{document}
+
+<<env, include=FALSE, echo=FALSE, cache=FALSE>>=
+library("knitr")
+opts_chunk$set(fig.align = 'center',
+               fig.show = 'hold',
+               par = TRUE,
+               prompt = FALSE,
+               eval = TRUE,
+               stop_on_error = 1L,
+               comment = ':')
+options(replace.assign = TRUE,
+        width = 50)
+@
+%%$
+
+\begin{frame}[fragile]
+
+%%   \maketitle
+
+  \begin{columns}
+    \begin{column}{.48\textwidth}
+
+
+      \begin{block}{Introduction}
+        \vspace{3mm}
+
+        \secintro{\justifying In biology, \textbf{localisation is
+            function} - understanding the sub-cellular localisation of
+          proteins is paramount to comprehend the context of their
+          functions. The cellular sub-division allows cells to
+          establish a range of distinct micro-environments
+          (Figure~\ref{fig:cell}), each favouring different
+          biochemical reactions and interactions and, therefore,
+          allowing each compartment to fulfil a particular functional
+          role.
+        }
+
+        \begin{wrapfigure}{l}{0.65\textwidth}
+          \centering
+          \includegraphics[width=1\linewidth]{./figs/Animal_cell_structure.png}
+          \caption{Structure of an animal cell (credit: Wikipedia).}
+          \label{fig:cell}
+        \end{wrapfigure}
+
+        \justifying Mass spectrometry (MS)-based spatial proteomics
+        (Figure~\ref{fig:lopit}) and contemporary machine learning
+        enable to build \textbf{proteome-wide spatial maps}
+        (Figure~\ref{fig:pca}), informing us on the location of
+        thousands of proteins.
+
+        \bigskip
+
+        Nevertheless, while some proteins can be found in a single
+        location within a cell, up to half of proteins may reside in
+        multiple locations, can dynamically re-localise, or reside
+        within an unknown functional compartment, leading to
+        considerable uncertainty in associating a protein to their
+        sub-cellular location.
+
+        \secintro{Recent advances enable to probabilistically model
+          protein localisation as well as quantify the uncertainty in
+          the location assignments, thus leading to better and more
+          trustworthy biological interpretation of the data.}
+
+      \end{block}
+
+      \begin{figure}
+        \includegraphics[width=.9\linewidth]{./figs/pca.pdf}
+        \caption{Principle component analysis of the pluripotent mouse
+          embryonic stem cell spatial map: each dot represents one
+          protein samples along 20 gradient fractions
+          (Figure~\ref{fig:lopit}). Left: among the 5032 proteins, 926
+          marker proteins (well known and curated proteins that can
+          condidently assigned to a unique location) depicting 14
+          distinct and well resolved sub-cellular niches. Right:
+          assignment of proteins of \textit{unknown} location to one
+          of the annotated classes. The size of the dots represent the
+          assignment probability.}
+        \label{fig:pca}
+      \end{figure}
+
+        \begin{wrapfigure}{r}{0.45\textwidth}
+          \centering
+          \includegraphics[width=.8\linewidth]{./figs/workflow_primary.pdf}
+          \caption{LOPIT and \textit{hyper}LOPIT separation of the cell
+            content along a density gradient.}
+          \label{fig:lopit}
+        \end{wrapfigure}
+
+      \begin{block}{Mass spectrometry-based spatial proteomics}
+
+       \justifying The \textit{hyper}LOPIT protocol (Figure
+       \ref{fig:lopit}) uses density gradients to separate organelles
+       and macro-molecular complexes. A set of discrete fractions are
+       then collected and proteins are extracted, identified and
+       quantified by mass spectrometry. The quantitaive proteins
+       profiles display location specific patterns that are used for
+       clustering and localisation analyses (classification)
+       (Figure~\ref{fig:pca}).
+
+       \vspace{2cm}
+
+       \textbf{References}
+
+       \justifying \textit{A draft map of the mouse pluripotent stem cell
+        spatial proteome} Christoforou A, Mulvey CM, Breckels LM,
+      Geladaki A, Hurrell T, Hayward PC, Naake T, Gatto L, Viner R,
+      Martinez Arias A, Lilley KS.  Nat Commun. 2016 Jan
+      12;7:8992. doi:~\href{http://dx.doi.org/10.1038/ncomms9992}{10.1038/ncomms9992}.
+
+      \bigskip
+
+      \textit{A Bayesian Mixture Modelling Approach For Spatial
+        Proteomics} Crook OM, Mulvey CM, Kirk PDW , Lilley KS, Gatto L
+      bioRxiv 282269;
+      doi:~\href{http://dx.doi.org/10.1101/282269}{10.1101/282269}
+
+      \end{block}
+
+      \vfill
+
+      \vspace{25cm}
+
+    \end{column}
+
+    \begin{column}{.48\textwidth}
+
+      \begin{block}{Results and conclusions}
+        \secintro{ \justifying By implementing a probabilistic model
+          for mass spectrometry-based spatial proteomics, we are in a
+          position to deconvolute biologically important localisation
+          patterns and confidently assign more proteins to their most
+          likely sub-cellular localisations .  }
+
+          \begin{figure}
+            \centering
+            \includegraphics[width=.4\linewidth]{./figs/Q924C1-prob-1.pdf}
+            \includegraphics[width=.55\linewidth]{./figs/ConcludePlot.pdf}
+            \caption{More results and biologically more relevant
+              protein localisation results.}
+            \label{fig:res}
+          \end{figure}
+
+          \justifying Exportin 5 (Q924C1) forms part of the micro-RNA
+          export machinery of the nucleus, transporting miRNA from the
+          nucleus to the cytoplasm for further processing.  It then
+          translocates back through the nuclear pore complex to return
+          to the nucleus.  Exportin 5 can then continue to mediate
+          further transport between nucleus and cytoplasm.  The
+          support vector machine (SVM) was unable to assign a
+          localisation of Exportin 5, with its assignment falling
+          below a $5\%$ FDR to wrongly assign this protein to the
+          proteasome. This incorrect assertion by the SVM was
+          confounded by the similarity between the cytosol and
+          proteasome profiles.  Figure \ref{fig:res} (left)
+          demonstrates, according to our model, that Exportin 5 most
+          likely localises to the cytosol but there is some
+          uncertainty with this assignment.  This uncertainty is
+          reflected in possible assignment of Exportin 5 to the
+          nucleus non-chromatin and this uncertainty is a
+          manifestation of the the fact that the function of this
+          protein is to shuttle between the cytosol and nucleus.
+
+          \bigskip
+
+          Figure \ref{fig:res} (right) shows the number of proteins
+          initially curated (markers), those that are confidently
+          assigned a unique localisation using a SVM classifier with a
+          manually-assigned 5\% false discovery threshold (center) and
+          those that are assigned with at least 99\% posterior
+          probability and low uncertainty (right).  This demonstrates
+          the effect of applying different methodologies on protein
+          assignment when applied the mouse pluripotent embryonic stem
+          cell data. Roughly 2000 proteins are classified using either
+          SVM and TAGM-MCMC; however, TAGM-MCMC can draw additional
+          conclusions about an extra 1000 proteins by quantifying
+          uncertainty.
+
+
+      \end{block}
+
+
+
+      \begin{block}{Probabilistic model}
+
+        We present a probabilistic generative model for MS-based
+        spatial proteomics data. Our model posits that each annotated
+        sub-cellular niche can be modelled by a multivariate Gaussian
+        distribution. Thus, the full complement of annotated proteins
+        is captured by a mixture of multivariate Gaussian
+        distributions. With the prior knowledge that many proteins are
+        not captured by known sub-cellular niches, we augment our
+        model with an outlier component. Outliers are often dispersed
+        and thus this additional component is described by a
+        heavy-tailed distribution: the multivariate Student's
+        t-distribution, leading us to a T Augmented Gaussian Mixture
+        model (TAGM).
+
+      \end{block}
+      \begin{figure}
+        \centering
+        \includegraphics[width=.4\linewidth]{./figs/graphmodel2.pdf}
+        \includegraphics[width=.4\linewidth]{./figs/pca12-ellipses-1.pdf}
+        \caption{Left: Plate diagram for TAGM model. This diagram
+          specifies the conditional independencies and parameters in
+          our model. Right: Illustration of how the model describes
+          the data. Each ellipse contains a proportion of total
+          probability of a particular multivariate Gaussian density.
+          The outer ellipse contains $99\%$ of the total probability
+          whilst the middle and inner ellipses contain $95\%$ and
+          $90\%$ of the probability respectively.}
+        \label{fig:tagm}
+      \end{figure}
+
+      \vspace{2cm}
+
+      \textbf{Funding} This work was supported by a Wellcome
+      Trust and the Biotechnology and Biological Sciences Research
+      Council (BBSRC).
+
+      \vspace{25cm}
+
+      \vfill
+
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\end{document}
