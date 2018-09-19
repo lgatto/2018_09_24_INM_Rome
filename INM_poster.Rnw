@@ -2,7 +2,6 @@
 \usepackage{ragged2e}
 \usepackage{wrapfig}
 
-
 \setbeamertemplate{headline}{
   \leavevmode
   \begin{beamercolorbox}[wd=\paperwidth]{headline}
@@ -40,28 +39,28 @@
 \mode<presentation> {  %% check http://www-i6.informatik.rwth-aachen.de/~dreuw/latexbeamerposter.php for examples
 }
 
-% footline colors and fonts
-\setbeamercolor{footline}{fg=white,bg=gray}
-\setbeamerfont{footline}{fg=black,size=\normalsize}
+%% % footline colors and fonts
+%% \setbeamercolor{footline}{fg=white,bg=gray}
+%% \setbeamerfont{footline}{fg=black,size=\normalsize}
 
-\setbeamertemplate{footline}{
-  \begin{beamercolorbox}[wd=\paperwidth]{upper separation line foot}
-    \rule{0pt}{2pt}
-  \end{beamercolorbox}
-  \leavevmode%
-  \begin{beamercolorbox}[ht=2ex]{footline}%
-    \centering
-    Network Medicine and Big Data
-    \hskip3ex
-    24 -- 26 September 2018
-    \hskip3ex
-    Rome
-  \end{beamercolorbox}
-  \vskip0pt%
-  \begin{beamercolorbox}[wd=\paperwidth]{lower separation line foot}
-    \rule{0pt}{2pt}
-  \end{beamercolorbox}
-}
+%% \setbeamertemplate{footline}{
+%%   \begin{beamercolorbox}[wd=\paperwidth]{upper separation line foot}
+%%     \rule{0pt}{2pt}
+%%   \end{beamercolorbox}
+%%   \leavevmode%
+%%   \begin{beamercolorbox}[ht=2ex]{footline}%
+%%     \centering
+%%     Network Medicine and Big Data
+%%     \hskip3ex
+%%     24 -- 26 September 2018
+%%     \hskip3ex
+%%     Rome
+%%   \end{beamercolorbox}
+%%   \vskip0pt%
+%%   \begin{beamercolorbox}[wd=\paperwidth]{lower separation line foot}
+%%     \rule{0pt}{2pt}
+%%   \end{beamercolorbox}
+%% }
 
 
 \setbeamertemplate{bibliography item}[text]
@@ -114,6 +113,19 @@
   \bigskip
   \begin{tcolorbox}[notitle,boxrule=0pt,colback=blue!10,colframe=blue!10]{#1}\end{tcolorbox}}
 
+
+\newcommand{\sidebysidecaption}[4]{%
+\RaggedRight%
+  \begin{minipage}[t]{#1}
+    \vspace*{0pt}
+    #3
+  \end{minipage}
+  \hfill%
+  \begin{minipage}[t]{#2}
+    \vspace*{0pt}
+    #4
+\end{minipage}%
+}
 
 %% colors
 \definecolor{Red}{rgb}{0.7,0,0}
@@ -213,7 +225,7 @@ options(replace.assign = TRUE,
           role.
         }
 
-        \begin{wrapfigure}{l}{0.65\textwidth}
+        \begin{wrapfigure}{l}{0.6\textwidth}
           \centering
           \includegraphics[width=1\linewidth]{./figs/Animal_cell_structure.png}
           \caption{Structure of an animal cell (credit: Wikipedia).}
@@ -244,26 +256,26 @@ options(replace.assign = TRUE,
 
       \begin{figure}
         \includegraphics[width=.9\linewidth]{./figs/pca.pdf}
-        \caption{Principle component analysis of the pluripotent mouse
-          embryonic stem cell spatial map: each dot represents a
-          single protein samples along 20 gradient fractions
-          (Figure~\ref{fig:lopit}). Left: among the 5032 proteins, 926
-          marker proteins (well known and curated proteins that can be
-          confidently assigned to a unique location) depicting 14
-          distinct and well resolved sub-cellular niches. Right:
-          assignment of proteins of \textit{unknown} location to one
-          of the annotated classes. The dots are scaled according to
-          the protein assignment probabilities. Note that while some
-          sub-cellular clusters overlap along PC1 and PC2, they are
-          separated along additional dimensions.}
+        \caption{\justifying Principle component analysis of the
+          pluripotent mouse embryonic stem cell spatial map: each dot
+          represents a single protein samples along 20 gradient
+          fractions (Figure~\ref{fig:lopit}). Left: among the 5032
+          proteins, 926 marker proteins (well known and curated
+          proteins that can be confidently assigned to a unique
+          location) depicting 14 distinct and well resolved
+          sub-cellular niches. Right: assignment of proteins of
+          \textit{unknown} location to one of the annotated
+          classes. The dots are scaled according to the protein
+          assignment probabilities. Note that while some sub-cellular
+          clusters overlap along PC1 and PC2, they are separated along
+          additional dimensions.}
         \label{fig:pca}
       \end{figure}
 
         \begin{wrapfigure}{r}{0.45\textwidth}
           \centering
           \includegraphics[width=.8\linewidth]{./figs/workflow_primary.pdf}
-          \caption{LOPIT and \textit{hyper}LOPIT separation of the cell
-            content along a density gradient.}
+          \caption{LOPIT and \textit{hyper}LOPIT experiments.}
           \label{fig:lopit}
         \end{wrapfigure}
 
@@ -278,20 +290,11 @@ options(replace.assign = TRUE,
        clustering and localisation analyses (classification)
        (Figure~\ref{fig:pca}).
 
-       \vspace{2cm}
+       \vspace{7cm}
 
-       \textbf{References}
-
-       \justifying \textit{A draft map of the mouse pluripotent stem
-         cell spatial proteome} Christoforou A \textit{et al.} Nat
-       Commun. 2016 Jan
-       12;7:8992. doi:~\href{http://dx.doi.org/10.1038/ncomms9992}{10.1038/ncomms9992}.
-
-      \bigskip
-
-      \textit{A Bayesian Mixture Modelling Approach For Spatial
-        Proteomics} Crook OM \textit{et al.}  bioRxiv 282269;
-      doi:~\href{http://dx.doi.org/10.1101/282269}{10.1101/282269}
+       \textbf{Funding} This work was supported by the Wellcome Trust
+       and the Biotechnology and Biological Sciences Research Council
+       (BBSRC).
 
       \end{block}
 
@@ -305,94 +308,101 @@ options(replace.assign = TRUE,
         \secintro{ \justifying By implementing a probabilistic model
           for mass spectrometry-based spatial proteomics, we are in a
           position to deconvolute biologically important localisation
-          patterns and confidently assign more proteins to their most
-          likely sub-cellular localisations .  }
+          patterns such as putative multi-localisation and confidently
+          assign more proteins to their most likely sub-cellular
+          localisations by quantifying uncertainty
+          (Figure~\ref{fig:res}).  }
 
           \begin{figure}
             \centering
             \includegraphics[width=.4\linewidth]{./figs/Q924C1-prob-1.pdf}
             \includegraphics[width=.55\linewidth]{./figs/ConcludePlot.pdf}
-            \caption{More results and biologically more relevant
-              protein localisation results.}
+            \caption{ \justifying Left: Exportin 5 (Q924C1,
+              highlighted on Figure~\ref{fig:pca}) forms part of the
+              micro-RNA export machinery of the nucleus, transporting
+              miRNA from the nucleus to the cytoplasm for further
+              processing.  It then translocates back through the
+              nuclear pore complex to return to the nucleus.  Exportin
+              5 can then continue to mediate further transport between
+              nucleus and cytoplasm. Our model correclty infers that
+              it most likely localises to the cytosol but there is
+              some uncertainty with this assignment. This uncertainty
+              is reflected in possible assignment of Exportin 5 to the
+              nucleus non-chromatin and this uncertainty is a
+              manifestation of the the fact that the function of this
+              protein is to shuttle between the cytosol and
+              nucleus. \newline Right: The barplot shows the number of
+              marker proteins initially curated (left), those that are
+              confidently assigned a unique localisation using a
+              support vector machine classifier with a
+              manually-assigned 5\% false discovery threshold (center)
+              and those that are assigned using our model with at
+              least 99\% posterior probability and low uncertainty
+              (right).  Roughly 2000 proteins are classified using
+              either a support vector machine classifier and our TAGM
+              model; however, TAGM can draw additional conclusions
+              about an extra 1000 proteins by quantifying uncertainty
+              using the Shannon entropy.  }
             \label{fig:res}
           \end{figure}
 
-          \justifying Exportin 5 (Q924C1) forms part of the micro-RNA
-          export machinery of the nucleus, transporting miRNA from the
-          nucleus to the cytoplasm for further processing.  It then
-          translocates back through the nuclear pore complex to return
-          to the nucleus.  Exportin 5 can then continue to mediate
-          further transport between nucleus and cytoplasm.  The
-          support vector machine (SVM) was unable to assign a
-          localisation of Exportin 5, with its assignment falling
-          below a $5\%$ FDR to wrongly assign this protein to the
-          proteasome. This incorrect assertion by the SVM was
-          confounded by the similarity between the cytosol and
-          proteasome profiles.  Figure \ref{fig:res} (left)
-          demonstrates, according to our model, that Exportin 5 most
-          likely localises to the cytosol but there is some
-          uncertainty with this assignment.  This uncertainty is
-          reflected in possible assignment of Exportin 5 to the
-          nucleus non-chromatin and this uncertainty is a
-          manifestation of the the fact that the function of this
-          protein is to shuttle between the cytosol and nucleus.
-
-          \bigskip
-
-          Figure \ref{fig:res} (right) shows the number of proteins
-          initially curated (markers), those that are confidently
-          assigned a unique localisation using a SVM classifier with a
-          manually-assigned 5\% false discovery threshold (center) and
-          those that are assigned with at least 99\% posterior
-          probability and low uncertainty (right).  This demonstrates
-          the effect of applying different methodologies on protein
-          assignment when applied the mouse pluripotent embryonic stem
-          cell data. Roughly 2000 proteins are classified using either
-          SVM and TAGM-MCMC; however, TAGM-MCMC can draw additional
-          conclusions about an extra 1000 proteins by quantifying
-          uncertainty.
-
-
       \end{block}
-
-
 
       \begin{block}{Probabilistic model}
 
-        We present a probabilistic generative model for MS-based
-        spatial proteomics data. Our model posits that each annotated
-        sub-cellular niche can be modelled by a multivariate Gaussian
-        distribution. Thus, the full complement of annotated proteins
-        is captured by a mixture of multivariate Gaussian
-        distributions. With the prior knowledge that many proteins are
-        not captured by known sub-cellular niches, we augment our
-        model with an outlier component. Outliers are often dispersed
-        and thus this additional component is described by a
-        heavy-tailed distribution: the multivariate Student's
-        t-distribution, leading us to a T Augmented Gaussian Mixture
-        model (TAGM).
+        \secintro{ We present \textbf{T Augmented Gaussian Mixture
+            model (TAGM)}, a multivariate Gaussian generative model
+          for MS-based spatial proteomics data.}  Our model posits
+        that each annotated sub-cellular niche can be modelled by a
+        multivariate Gaussian distribution. With the prior knowledge
+        that many proteins are not captured by known sub-cellular
+        niches, we augment our model with an outlier
+        component. Outliers are often dispersed and thus this
+        additional component is described by a heavy-tailed
+        distribution: the multivariate Student's t-distribution,
+        leading us to a T Augmented Gaussian Mixture model (TAGM) .
 
       \end{block}
+
       \begin{figure}
         \centering
-        \includegraphics[width=.4\linewidth]{./figs/graphmodel2.pdf}
-        \includegraphics[width=.4\linewidth]{./figs/pca12-ellipses-1.pdf}
-        \caption{Left: Plate diagram for TAGM model. This diagram
-          specifies the conditional independencies and parameters in
-          our model. Right: Illustration of how the model describes
-          the data. Each ellipse contains a proportion of total
-          probability of a particular multivariate Gaussian density.
-          The outer ellipse contains $99\%$ of the total probability
-          whilst the middle and inner ellipses contain $95\%$ and
-          $90\%$ of the probability respectively.}
-        \label{fig:tagm}
+        \sidebysidecaption{0.555\linewidth}{0.42\linewidth}{
+          %% \includegraphics[width=.45\linewidth]{./figs/graphmodel2.pdf}
+          \includegraphics[width=.9\linewidth]{./figs/pca12-ellipses-1.pdf}
+        }{
+          \caption{Illustration of how the TAGM model describes the
+            pluripotent mouse embryonic stem cell data. Each ellipse
+            contains a proportion of total probability of a particular
+            multivariate Gaussian density.  The outer ellipse contains
+            $99\%$ of the total probability whilst the middle and
+            inner ellipses contain $95\%$ and $90\%$ of the
+            probability respectively.}
+          \label{fig:tagm}
+        }
       \end{figure}
 
-      \vspace{2cm}
+      \vspace{3cm}
 
-      \textbf{Funding} This work was supported by the Wellcome Trust
-      and the Biotechnology and Biological Sciences Research Council
-      (BBSRC).
+      \textbf{References}
+
+       \justifying \textit{A draft map of the mouse pluripotent stem
+         cell spatial proteome} Christoforou A \textit{et al.} Nat
+       Commun. 2016 Jan
+       12;7:8992. doi:~\href{http://dx.doi.org/10.1038/ncomms9992}{10.1038/ncomms9992}.
+
+      \bigskip
+
+      \textit{A Bayesian Mixture Modelling Approach For Spatial
+        Proteomics} Crook OM \textit{et al.}  bioRxiv 282269;
+      doi:~\href{http://dx.doi.org/10.1101/282269}{10.1101/282269}
+
+
+      \vspace{3cm}
+
+      \textbf{Software availablity}
+
+      The TAGM algorithm is available as part of the \Rpackage{pRoloc}
+      R/Bioconductor package. \url{https://lgatto.github.io/pRoloc/}.
 
       \vfill
 
