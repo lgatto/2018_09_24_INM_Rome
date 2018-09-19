@@ -159,13 +159,14 @@
 \title[Probabilistic Spatial Proteomics]{\huge Probabilistic modelling of \\ protein sub-cellular localisation}
 
 \author[Gatto et al.]{
-  \large Laurent Gatto$^{1, *}$, Oliver M. Crook$^{2}$
+  \large Oliver M Crook$^{1}$,  Claire M Mulvey$^{1}$, Paul D. W. Kirk$^{2}$, Kathryn S Lilley$^{1}$, \underline{Laurent Gatto}$^{3, *}$
 }
 
 \institute[]{
   \begin{small}
-    $^{1}$ de Duve Institute - UCLouvain, Avenue Hippocrate 75, 1200 Brussels, Belgium \\
-    $^{2}$ Cambridge Centre for Proteomics, Department of Biochemistry, University of Cambridge, UK \\
+    $^{1}$ Cambridge Centre for Proteomics, Department of Biochemistry, University of Cambridge, UK \\
+    $^{2}$ MRC Biostatistics Unit, Cambridge Institute for Public Health, Cambridge, UK \\
+    $^{3}$ de Duve Institute - UCLouvain, Avenue Hippocrate 75, 1200 Brussels, Belgium \\
     \bigskip
     $^{*}$\url{laurent.gatto@uclouvain.be} \hspace{5cm}  \url{http://lgatto.github.io/about}
   \end{small}
@@ -195,12 +196,11 @@ options(replace.assign = TRUE,
 
 %%   \maketitle
 
-  \begin{columns}
+  \begin{columns}[t]
     \begin{column}{.48\textwidth}
 
 
       \begin{block}{Introduction}
-        \vspace{3mm}
 
         \secintro{\justifying In biology, \textbf{localisation is
             function} - understanding the sub-cellular localisation of
@@ -245,15 +245,17 @@ options(replace.assign = TRUE,
       \begin{figure}
         \includegraphics[width=.9\linewidth]{./figs/pca.pdf}
         \caption{Principle component analysis of the pluripotent mouse
-          embryonic stem cell spatial map: each dot represents one
-          protein samples along 20 gradient fractions
+          embryonic stem cell spatial map: each dot represents a
+          single protein samples along 20 gradient fractions
           (Figure~\ref{fig:lopit}). Left: among the 5032 proteins, 926
-          marker proteins (well known and curated proteins that can
-          condidently assigned to a unique location) depicting 14
+          marker proteins (well known and curated proteins that can be
+          confidently assigned to a unique location) depicting 14
           distinct and well resolved sub-cellular niches. Right:
           assignment of proteins of \textit{unknown} location to one
-          of the annotated classes. The size of the dots represent the
-          assignment probability.}
+          of the annotated classes. The dots are scaled according to
+          the protein assignment probabilities. Note that while some
+          sub-cellular clusters overlap along PC1 and PC2, they are
+          separated along additional dimensions.}
         \label{fig:pca}
       \end{figure}
 
@@ -280,24 +282,20 @@ options(replace.assign = TRUE,
 
        \textbf{References}
 
-       \justifying \textit{A draft map of the mouse pluripotent stem cell
-        spatial proteome} Christoforou A, Mulvey CM, Breckels LM,
-      Geladaki A, Hurrell T, Hayward PC, Naake T, Gatto L, Viner R,
-      Martinez Arias A, Lilley KS.  Nat Commun. 2016 Jan
-      12;7:8992. doi:~\href{http://dx.doi.org/10.1038/ncomms9992}{10.1038/ncomms9992}.
+       \justifying \textit{A draft map of the mouse pluripotent stem
+         cell spatial proteome} Christoforou A \textit{et al.} Nat
+       Commun. 2016 Jan
+       12;7:8992. doi:~\href{http://dx.doi.org/10.1038/ncomms9992}{10.1038/ncomms9992}.
 
       \bigskip
 
       \textit{A Bayesian Mixture Modelling Approach For Spatial
-        Proteomics} Crook OM, Mulvey CM, Kirk PDW , Lilley KS, Gatto L
-      bioRxiv 282269;
+        Proteomics} Crook OM \textit{et al.}  bioRxiv 282269;
       doi:~\href{http://dx.doi.org/10.1101/282269}{10.1101/282269}
 
       \end{block}
 
       \vfill
-
-      \vspace{25cm}
 
     \end{column}
 
@@ -392,11 +390,9 @@ options(replace.assign = TRUE,
 
       \vspace{2cm}
 
-      \textbf{Funding} This work was supported by a Wellcome
-      Trust and the Biotechnology and Biological Sciences Research
-      Council (BBSRC).
-
-      \vspace{25cm}
+      \textbf{Funding} This work was supported by the Wellcome Trust
+      and the Biotechnology and Biological Sciences Research Council
+      (BBSRC).
 
       \vfill
 
