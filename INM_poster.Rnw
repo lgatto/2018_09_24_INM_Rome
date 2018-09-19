@@ -290,11 +290,16 @@ options(replace.assign = TRUE,
        clustering and localisation analyses (classification)
        (Figure~\ref{fig:pca}).
 
-       \vspace{7cm}
+       \vspace{4cm}
 
        \textbf{Funding} This work was supported by the Wellcome Trust
        and the Biotechnology and Biological Sciences Research Council
        (BBSRC).
+
+       \bigskip
+
+       \textbf{Acknowledgement} We would like to thank Dr Sean
+       B. Holden, University of Cambridge, for helpful discussions.
 
       \end{block}
 
