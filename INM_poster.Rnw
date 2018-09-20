@@ -228,7 +228,10 @@ options(replace.assign = TRUE,
         \begin{wrapfigure}{l}{0.6\textwidth}
           \centering
           \includegraphics[width=1\linewidth]{./figs/Animal_cell_structure.png}
-          \caption{Structure of an animal cell (credit: Wikipedia).}
+          \caption{Structure of an animal cell (credit:
+            Wikipedia). \textbf{Spatial proteomics} is the systematic
+            and large-scale study of protein sub-cellular
+            localisation.}
           \label{fig:cell}
         \end{wrapfigure}
 
@@ -255,7 +258,7 @@ options(replace.assign = TRUE,
       \end{block}
 
       \begin{figure}
-        \includegraphics[width=.9\linewidth]{./figs/pca.pdf}
+        \includegraphics[width=.8\linewidth]{./figs/pca.pdf}
         \caption{\justifying Principle component analysis of the
           pluripotent mouse embryonic stem cell spatial map: each dot
           represents a single protein samples along 20 gradient
@@ -281,11 +284,11 @@ options(replace.assign = TRUE,
 
       \begin{block}{Mass spectrometry-based spatial proteomics}
 
-       \justifying The \textit{hyper}LOPIT protocol (Figure
-       \ref{fig:lopit}) uses density gradients to separate organelles
+       \justifying The LOPIT and \textit{hyper}LOPIT protocols (Figure
+       \ref{fig:lopit}) use density gradients to separate organelles
        and macro-molecular complexes. A set of discrete fractions are
        then collected and proteins are extracted, identified and
-       quantified by mass spectrometry. The quantitaive proteins
+       quantified by mass spectrometry. The quantitative proteins
        profiles display location specific patterns that are used for
        clustering and localisation analyses (classification)
        (Figure~\ref{fig:pca}).
@@ -329,7 +332,7 @@ options(replace.assign = TRUE,
               processing.  It then translocates back through the
               nuclear pore complex to return to the nucleus.  Exportin
               5 can then continue to mediate further transport between
-              nucleus and cytoplasm. Our model correclty infers that
+              nucleus and cytoplasm. Our model correctly infers that
               it most likely localises to the cytosol but there is
               some uncertainty with this assignment. This uncertainty
               is reflected in possible assignment of Exportin 5 to the
@@ -340,14 +343,14 @@ options(replace.assign = TRUE,
               marker proteins initially curated (left), those that are
               confidently assigned a unique localisation using a
               support vector machine classifier with a
-              manually-assigned 5\% false discovery threshold (center)
-              and those that are assigned using our model with at
-              least 99\% posterior probability and low uncertainty
-              (right).  Roughly 2000 proteins are classified using
-              either a support vector machine classifier and our TAGM
-              model; however, TAGM can draw additional conclusions
-              about an extra 1000 proteins by quantifying uncertainty
-              using the Shannon entropy.  }
+              manually-assigned 5\% false discovery threshold (centre)
+              and those that are uniquely assigned using our model
+              with at least 99\% posterior probability and low
+              uncertainty (right).  Roughly 2000 proteins are
+              classified using either a support vector machine
+              classifier and our TAGM model; however, TAGM can draw
+              additional conclusions about an extra 1000 proteins by
+              quantifying uncertainty using the Shannon entropy.  }
             \label{fig:res}
           \end{figure}
 
