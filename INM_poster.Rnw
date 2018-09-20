@@ -405,12 +405,16 @@ options(replace.assign = TRUE,
       doi:~\href{http://dx.doi.org/10.1101/282269}{10.1101/282269}
 
 
-      \vspace{3cm}
+      \vspace{2cm}
 
       \textbf{Software availablity}
 
       The TAGM algorithm is available as part of the \Rpackage{pRoloc}
       R/Bioconductor package. \url{https://lgatto.github.io/pRoloc/}.
+
+      \vspace{2cm}
+
+      {\large \textbf{Download} the poster: \url{http://bit.ly/INMposter}}
 
       \vfill
 
